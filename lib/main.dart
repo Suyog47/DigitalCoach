@@ -1,4 +1,5 @@
 import 'package:digitalcoach/Home.dart';
+import 'package:digitalcoach/approach.dart';
 import 'package:digitalcoach/login.dart';
 import 'package:digitalcoach/profile.dart';
 import 'package:digitalcoach/sign-up.dart';
@@ -19,14 +20,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      initialRoute: "/start-up",
+      initialRoute: "/approach",
       routes: {
         "/start-up" : (context) => StartUp(),
         "/start-up2" : (context) => StartUp2(),
         "/home" : (context) => Home(),
         "/sign-up" : (context) => SignUp(),
         "/log-in" : (context) => Login(),
-        "/profile" : (context) => Profile()
+        "/profile" : (context) => Profile(),
+        "/approach" : (context) => Approach()
       },
       debugShowCheckedModeBanner: false,
     );
