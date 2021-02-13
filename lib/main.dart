@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      initialRoute: "/approach",
+      initialRoute: "/profile",
       routes: {
         "/start-up" : (context) => StartUp(),
         "/start-up2" : (context) => StartUp2(),

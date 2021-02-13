@@ -11,7 +11,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String _fullname = "Suyog Amin", _dob = "2021/02/06", _email = "suyogamin11@gmail.com", _pass = "sa1147";
+  String _fullname = "Suyog Amin", _dob = "1998/07/09", _email = "suyogamin11@gmail.com", _pass = "sa1147";
   bool _obscureText = true;
   File _image1;
 
@@ -59,35 +59,49 @@ class _ProfileState extends State<Profile> {
 
                 SizedBox(height: 40),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 45,),
-                    Container(
-                      child: (_image1 == null)?
-                      new Container(
-                        padding: EdgeInsets.all(3),
-                        height: 150.0,
-                        width: 120.0,
-                        decoration: new BoxDecoration(
-                            borderRadius: BorderRadius.all(const Radius.circular(10.0)),
-                            color: Colors.black
+                Center(
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      Container(
+                        child: (_image1 == null)  ?
+
+                        Container(
+                            padding: EdgeInsets.all(3),
+                            height: 150.0,
+                            width: 120.0,
+                            decoration: new BoxDecoration(
+                                borderRadius: BorderRadius.all(const Radius.circular(10.0)),
+                                color: Colors.black
+                            ),
+                            child: Image(image: AssetImage("assets/defaultperson.png"), fit: BoxFit.fill,)
+                        )
+                            :
+
+                        Container(
+                            padding: EdgeInsets.all(3),
+                            height: 150.0,
+                            width: 110.0,
+                            decoration: new BoxDecoration(
+                                borderRadius: BorderRadius.all(const Radius.circular(10.0)),
+                                color: Colors.black
+                            ),
+                            child: Image.file(_image1,fit: BoxFit.fill)
                         ),
-                        child: Image(image: AssetImage("assets/defaultperson.png"), fit: BoxFit.fill,)
-                    ) :
-                    new Container(
-                        padding: EdgeInsets.all(3),
-                        height: 150.0,
-                        width: 110.0,
-                        decoration: new BoxDecoration(
-                          borderRadius: BorderRadius.all(const Radius.circular(10.0)),
-                          color: Colors.black
-                        ),
-                        child: Image.file(_image1,fit: BoxFit.fill)
-                    ),
                       ),
-                    IconButton(icon: Icon(Icons.edit), color: Colors.red, iconSize: 26, onPressed: () => _imgFromGallery(),),
-                  ],
+
+                      InkWell(
+                        onTap: () => _imgFromGallery(),
+                        child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.blue
+                            ),
+                            child: Icon(Icons.edit, color: Colors.white, size: 23,)),
+                      ),
+                    ],
+                  ),
                 ),
 
                 SizedBox(height: 15,),
